@@ -1,0 +1,17 @@
+{% extends 'posts/base.html' %}
+
+
+{% block content %}
+    {% for post in posts %}
+            <!-- Featured blog post-->
+            <div class="card mb-4">
+                <a href="#!"><img class="card-img-top" src="{{post.image}}" alt="..." /></a>
+                <div class="card-body">
+                    <div class="small text-muted">{{ post.datetime|date:'F d Y '}}</div>
+                    <h2 class="card-title">{{ post.title}}</h2>
+                    <p class="card-text">{{ post.description }}</p>
+                    <a class="btn btn-primary" href="{% url 'posts-detail' post.id %}">Read more →</a>
+                </div>
+            </div>
+    {% endfor %}
+{% endblock %}
